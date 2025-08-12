@@ -1,6 +1,6 @@
 // src/firebase.js
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, onAuthStateChange, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, collection, getDocs, addDoc, doc, getDoc, setDoc, updateDoc, query, where } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
