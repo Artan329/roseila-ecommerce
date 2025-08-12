@@ -24,7 +24,7 @@ import {
   updateDoc
 } from 'firebase/firestore';
 
-import { BiPinterest } from 'react-icons/bi';
+import { BiLogoPinterestAlt } from 'react-icons/bi';
 
 // Error Boundary Component
 class ErrorBoundary extends React.Component {
@@ -675,7 +675,7 @@ const App = () => {
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-rose-500"><Facebook size={20} /></a>
               <a href="#" className="text-gray-400 hover:text-rose-500"><Instagram size={20} /></a>
-              <a href="#" className="text-gray-400 hover:text-rose-500"><BiPinterest size={20} /></a>
+              <a href="#" className="text-gray-400 hover:text-rose-500"><BiLogoPinterestAlt size={20} /></a>
               <a href="#" className="text-gray-400 hover:text-rose-500"><Tiktok size={20} /></a>
             </div>
           </div>
