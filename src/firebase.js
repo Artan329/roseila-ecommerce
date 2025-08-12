@@ -6,13 +6,13 @@ import { getStorage } from 'firebase/storage';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC9ZJrRgj5nhZpazMVotYLa0slXDGUb3GM",
-  authDomain: "roseila-e-commerce.firebaseapp.com",
-  projectId: "roseila-e-commerce",
-  storageBucket: "roseila-e-commerce.firebasestorage.app",
-  messagingSenderId: "888811369141",
-  appId: "1:888811369141:web:d5fe08217785cf227bc4fc",
-  measurementId: "G-2GQ171P1SK"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
