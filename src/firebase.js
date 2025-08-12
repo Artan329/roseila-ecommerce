@@ -21,6 +21,7 @@ export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
 export const googleProvider = new GoogleAuthProvider();
+export { signOut };
 
 // Helper functions
 export const createUserDocument = async (user, additionalData) => {
