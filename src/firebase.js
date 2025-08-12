@@ -21,7 +21,7 @@ export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
 export const googleProvider = new GoogleAuthProvider();
-export { signOut };
+export { signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup };
 
 // Helper functions
 export const createUserDocument = async (user, additionalData) => {
@@ -54,15 +54,4 @@ export const onAuthStateChange = (callback) => {
   return onAuthStateChanged(auth, (user) => {
     callback(user);
   });
-};
-
-export { 
-  auth, 
-  db, 
-  storage, 
-  googleProvider, 
-  signOut, 
-  signInWithEmailAndPassword, 
-  createUserWithEmailAndPassword, 
-  signInWithPopup 
 };
