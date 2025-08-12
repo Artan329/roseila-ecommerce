@@ -1,7 +1,7 @@
 // src/firebase.js
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signOut } from 'firebase/auth';
-import { getFirestore, collection, getDocs, addDoc, doc, getDoc, setDoc, updateDoc, query, where } from 'firebase/firestore';
+import { getAuth, GoogleAuthProvider, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { getFirestore, collection, getDocs, addDoc, doc, getDoc, updateDoc, query, where } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
 
@@ -54,4 +54,15 @@ export const onAuthStateChange = (callback) => {
   return onAuthStateChanged(auth, (user) => {
     callback(user);
   });
+};
+
+export { 
+  auth, 
+  db, 
+  storage, 
+  googleProvider, 
+  signOut, 
+  signInWithEmailAndPassword, 
+  createUserWithEmailAndPassword, 
+  signInWithPopup 
 };
