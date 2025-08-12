@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  ShoppingCart, Heart, Menu, X, ChevronLeft, ChevronRight, Star, Search,
+  ShoppingCart, Heart, Leaf, Sprout, Menu, X, ChevronLeft, ChevronRight, Star, Search,
   CreditCard, MapPin, Phone, Mail, ChevronDown, Minus, Plus, XCircle,
   CheckCircle, Facebook, Instagram, Package, LayoutDashboard, 
   DollarSign, TrendingUp, Users 
 } from 'lucide-react';
+// Top of App.js
 import { 
   auth,
   db,
   onAuthStateChange,
   signOut,
-  createUserDocument
+  createUserDocument,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  googleProvider
 } from './firebase';
 import { 
   collection, 
@@ -90,6 +95,8 @@ const App = () => {
   });
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [error, setError] = useState(null);
+  // In your state declarations
+  const [processing, setProcessing] = useState(false);
   
   // Auth
   const [user, setUser] = useState(null);
@@ -676,7 +683,7 @@ const App = () => {
               <a href="#" className="text-gray-400 hover:text-rose-500"><Facebook size={20} /></a>
               <a href="#" className="text-gray-400 hover:text-rose-500"><Instagram size={20} /></a>
               <a href="#" className="text-gray-400 hover:text-rose-500"><BiLogoPinterestAlt size={20} /></a>
-              <a href="#" className="text-gray-400 hover:text-rose-500"><BiLogoTiktokTiktok size={20} /></a>
+              <a href="#" className="text-gray-400 hover:text-rose-500"><BiLogoTiktok size={20} /></a>
             </div>
           </div>
           
