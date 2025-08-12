@@ -1315,7 +1315,7 @@ const handleLogout = async () => {
     </div>
   );
 
-  // Order History Page
+  // Order History Pagee
 const OrderHistoryPage = () => {
   const [orders, setOrders] = useState([]);
   const [ordersLoading, setOrdersLoading] = useState(true);
@@ -1419,11 +1419,11 @@ const OrderHistoryPage = () => {
         )}
       </div>
     </div>
+    )
   };
   
 
-
-  // Login Modal Component
+// Login Modal Component
 const LoginModal = ({ onClose }) => (
   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
     <div className="bg-white rounded-xl p-8 max-w-md w-full">
