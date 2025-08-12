@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ShoppingCart, Heart, Menu, X, ChevronLeft, ChevronRight, Star, Search,
   CreditCard, MapPin, Phone, Mail, ChevronDown, Minus, Plus, XCircle,
-  CheckCircle, Facebook, Instagram, Pinterest, Tiktok, Package, LayoutDashboard, 
+  CheckCircle, Facebook, Instagram, Tiktok, Package, LayoutDashboard, 
   DollarSign, TrendingUp, Users 
 } from 'lucide-react';
 import { 
@@ -23,6 +23,8 @@ import {
   getDoc,
   updateDoc
 } from 'firebase/firestore';
+
+import { BiPinterest } from 'react-icons/bi';
 
 // Error Boundary Component
 class ErrorBoundary extends React.Component {
@@ -673,7 +675,7 @@ const App = () => {
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-rose-500"><Facebook size={20} /></a>
               <a href="#" className="text-gray-400 hover:text-rose-500"><Instagram size={20} /></a>
-              <a href="#" className="text-gray-400 hover:text-rose-500"><Pinterest size={20} /></a>
+              <a href="#" className="text-gray-400 hover:text-rose-500"><BiPinterest size={20} /></a>
               <a href="#" className="text-gray-400 hover:text-rose-500"><Tiktok size={20} /></a>
             </div>
           </div>
