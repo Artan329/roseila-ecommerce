@@ -24,9 +24,7 @@ import {
   getDocs,
   query,
   where,
-  doc,
   getDoc,
-  updateDoc
 } from 'firebase/firestore';
 
 import { BiLogoPinterestAlt, BiLogoTiktok } from 'react-icons/bi';
