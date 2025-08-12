@@ -96,7 +96,7 @@ const App = () => {
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [error, setError] = useState(null);
   // In your state declarations
-  const [processing, setProcessing] = useState(false);
+  const [setProcessing] = useState(false);
   
   // Auth
   const [user, setUser] = useState(null);
@@ -680,10 +680,10 @@ const App = () => {
             <h3 className="text-lg font-serif font-bold text-rose-500 mb-4">Roseila Cosmetics</h3>
             <p className="text-gray-600 mb-4">Luxury cosmetics crafted with natural ingredients and sustainable practices.</p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-rose-500"><Facebook size={20} /></a>
-              <a href="#" className="text-gray-400 hover:text-rose-500"><Instagram size={20} /></a>
-              <a href="#" className="text-gray-400 hover:text-rose-500"><BiLogoPinterestAlt size={20} /></a>
-              <a href="#" className="text-gray-400 hover:text-rose-500"><BiLogoTiktok size={20} /></a>
+              <a href="https://facebook.com/roseila" className="text-gray-400 hover:text-rose-500"><Facebook size={20} /></a>
+              <a href="https://instagram.com/roseila" className="text-gray-400 hover:text-rose-500"><Instagram size={20} /></a>
+              <a href="https://pinterest.com/roseila" className="text-gray-400 hover:text-rose-500"><BiLogoPinterestAlt size={20} /></a>
+              <a href="https://tiktok.com/@roseila" className="text-gray-400 hover:text-rose-500"><BiLogoTiktok size={20} /></a>
             </div>
           </div>
           
@@ -1281,7 +1281,7 @@ const App = () => {
 
   // Checkout Page
   const CheckoutPage = () => {
-    const [processing, setProcessing] = useState(false);
+    const [processing] = useState(false);
     
     if (cart.length === 0) {
       return (
@@ -1523,7 +1523,7 @@ const App = () => {
       };
       
       fetchOrders();
-    }, [user]);
+    }, []);
     
     if (!user) {
       return (
