@@ -11,6 +11,9 @@ import {
   signInWithPopup, 
   onAuthStateChanged,
   createUserDocument,
+} from './firebase';
+
+import { 
   collection,
   getDocs,
   addDoc,
@@ -20,7 +23,7 @@ import {
   query,
   where,
   getDoc,
-} from './firebase';
+} from 'firebase/firestore';
 import { BiLogoPinterestAlt, BiLogoTiktok } from 'react-icons/bi';
 import { 
   LayoutDashboard, 
