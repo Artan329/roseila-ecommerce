@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef, Component } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
 import { 
   db, 
-  auth, 
-  storage, 
+  auth,  
   googleProvider, 
   signOut, 
   signInWithEmailAndPassword, 
@@ -20,8 +19,6 @@ import {
   updateDoc,
   deleteDoc,
   doc,
-  query,
-  where,
   getDoc,
 } from 'firebase/firestore';
 import { BiLogoPinterestAlt, BiLogoTiktok } from 'react-icons/bi';
@@ -1393,12 +1390,12 @@ function App() {
               <ul className="space-y-2">
                 {categories.map(category => (
                   <li key={category}>
-                    <a 
-                      href="#" 
+                    <button 
+                      type="button" 
                       className="text-gray-600 hover:text-rose-500 transition capitalize"
                     >
                       {category}
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -2122,32 +2119,34 @@ function App() {
                 </div>
                 
                 <nav className="hidden md:flex items-center space-x-8">
-                  <a 
-                    href="#" 
+                  <button 
+                    type="button"
                     className="text-gray-600 hover:text-gray-800 font-medium"
                     onClick={() => setCurrentPage('home')}
                   >
                     Home
-                  </a>
-                  <a 
-                    href="#" 
+                  </button>
+                  <button 
+                    type="button"
                     className="text-gray-600 hover:text-gray-800 font-medium"
                     onClick={() => setCurrentPage('shop')}
                   >
                     Shop
-                  </a>
-                  <a 
-                    href="#" 
+                  </button>
+                  <button 
+                    type="button"
                     className="text-gray-600 hover:text-gray-800 font-medium"
+                    onClick={() => setCurrentPage('about')}
                   >
                     About
-                  </a>
-                  <a 
-                    href="#" 
+                  </button>
+                  <button 
+                    type="button"
                     className="text-gray-600 hover:text-gray-800 font-medium"
+                    onClick={() => setCurrentPage('contact')}
                   >
                     Contact
-                  </a>
+                  </button>
                 </nav>
                 
                 <div className="flex items-center space-x-4">
@@ -2423,32 +2422,32 @@ function App() {
                     Handcrafted floral arrangements delivered fresh to your door. Celebrating life's special moments with exquisite flowers.
                   </p>
                   <div className="flex space-x-4">
-                    <a href="#" className="text-gray-400 hover:text-gray-600">
+                    <button type="button" className="text-gray-400 hover:text-gray-600">
                       <BiLogoPinterestAlt size={24} />
-                    </a>
-                    <a href="#" className="text-gray-400 hover:text-gray-600">
+                    </button>
+                    <button type="button" className="text-gray-400 hover:text-gray-600">
                       <BiLogoTiktok size={24} />
-                    </a>
+                    </button>
                   </div>
                 </div>
                 
                 <div>
                   <h3 className="text-lg font-bold text-gray-800 mb-4">Shop</h3>
                   <ul className="space-y-2">
-                    <li><a href="#" className="text-gray-600 hover:text-gray-800">Flowers</a></li>
-                    <li><a href="#" className="text-gray-600 hover:text-gray-800">Bouquets</a></li>
-                    <li><a href="#" className="text-gray-600 hover:text-gray-800">Gifts</a></li>
-                    <li><a href="#" className="text-gray-600 hover:text-gray-800">Occasions</a></li>
+                    <li><button type="button" className="text-gray-600 hover:text-gray-800">Flowers</button></li>
+                    <li><button type="button" className="text-gray-600 hover:text-gray-800">Bouquets</button></li>
+                    <li><button type="button" className="text-gray-600 hover:text-gray-800">Gifts</button></li>
+                    <li><button type="button" className="text-gray-600 hover:text-gray-800">Occasions</button></li>
                   </ul>
                 </div>
                 
                 <div>
                   <h3 className="text-lg font-bold text-gray-800 mb-4">Help</h3>
                   <ul className="space-y-2">
-                    <li><a href="#" className="text-gray-600 hover:text-gray-800">Shipping</a></li>
-                    <li><a href="#" className="text-gray-600 hover:text-gray-800">Returns</a></li>
-                    <li><a href="#" className="text-gray-600 hover:text-gray-800">FAQs</a></li>
-                    <li><a href="#" className="text-gray-600 hover:text-gray-800">Contact</a></li>
+                    <li><button type="button" className="text-gray-600 hover:text-gray-800">Shipping</button></li>
+                    <li><button type="button" className="text-gray-600 hover:text-gray-800">Returns</button></li>
+                    <li><button type="button" className="text-gray-600 hover:text-gray-800">FAQs</button></li>
+                    <li><button type="button" className="text-gray-600 hover:text-gray-800">Contact</button></li>
                   </ul>
                 </div>
                 
