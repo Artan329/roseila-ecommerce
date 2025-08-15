@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, Component } from 'react';
-import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { 
   db, 
   auth,  
@@ -140,7 +140,7 @@ function App() {
 
   // Load user and products
   useEffect(() => {
-    const unsubscribe = onAuthStateChange(auth, async (user) => {
+    const unsubscribe = onAuthStateChange(async (user) => {
       if (user) {
         setUser(user);
         // Load user's cart and wishlist
@@ -2105,7 +2105,6 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <Router>
         <div className="min-h-screen flex flex-col">
           {/* Header */}
           <header className="bg-white shadow-sm">
@@ -2479,7 +2478,6 @@ function App() {
         
         {/* Authentication Modal */}
         {showAuthModal && <AuthModal />}
-      </Router>
     </ErrorBoundary>
   );
 }
