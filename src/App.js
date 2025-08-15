@@ -9,7 +9,7 @@ import {
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, 
   signInWithPopup, 
-  onAuthStateChanged,
+  onAuthStateChange,
   createUserDocument,
 } from './firebase';
 
@@ -143,7 +143,7 @@ function App() {
 
   // Load user and products
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+    const unsubscribe = onAuthStateChange(auth, async (user) => {
       if (user) {
         setUser(user);
         // Load user's cart and wishlist
