@@ -1615,43 +1615,68 @@ function App() {
     
     const handleSubmit = async (e) => {
       e.preventDefault();
-      
-      if (!formData.address || !formData.city || !formData.zip) {
-        setError('Please fill in all shipping information');
-        return;
-      }
-      
-      if (paymentMethod === 'card' && (!cardNumber || !expiry || !cvv)) {
-        setError('Please fill in all payment information');
-        return;
-      }
-      
+  
+      // 1. Validate form
+      // 2. Process payment FIRST
       try {
         setProcessing(true);
         setError(null);
-        
-        // Save order to Firestore
+    
+        // Create payment intent via Netlify function
+        const { clientSecret } = await createPaymentIntent(cart, formData.email);
+    
+        if (!clientSecret) {
+          throw new Error("Failed to create payment intent");
+        }
+    
+        // Confirm payment
+        const stripe = await loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+        const { error: paymentError } = await stripe.confirmCardPayment(clientSecret, {
+          payment_method: {
+            card: elements.getElement(CardElement),
+            billing_details: {
+              name: formData.name,
+              email: formData.email,
+              address: {
+              line1: formData.address,
+                city: formData.city,
+                postal_code: formData.zip
+              }
+            }
+          }
+        });
+    
+        if (paymentError) {
+          throw new Error(paymentError.message);
+        }
+    
+        // 3. ONLY AFTER SUCCESSFUL PAYMENT, save order
         const orderData = {
           items: cart,
           total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
-          shipping: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) > 50 ? 0 : 5.99,
+          shipping: 5.00,
           status: 'Processing',
           createdAt: new Date(),
           ...formData
         };
-        
+    
         await addDoc(collection(db, 'orders'), orderData);
         setCart([]);
         setOrderPlaced(true);
-        
+    
+        // 4. Clear cart in Firestore
+        if (user) {
+          await updateDoc(doc(db, 'users', user.uid), { cart: [] });
+        }
+    
         // Show success message
         setTimeout(() => {
           setCurrentPage('home');
           setOrderPlaced(false);
         }, 3000);
       } catch (error) {
-        console.error('Error saving order:', error);
-        setError('Failed to process order. Please try again.');
+        console.error('Error processing order:', error);
+        setError(`Payment failed: ${error.message || 'Please try again'}`);
       } finally {
         setProcessing(false);
       }
